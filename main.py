@@ -15,8 +15,8 @@ PLANET_SIZE = 50
 OBJ_SIZE = 5
 VEL_SCALE = 100
 
-# BG = pygame.transform.scale(pygame.image.load("background.jpg"), (WIDTH, HEIGHT))
-# PLANET = pygame.transform.scale(pygame.image.load("jupiter.png"), (PLANET_SIZE * 2, PLANET_SIZE * 2))
+BG = pygame.transform.scale(pygame.image.load("background.jpg"), (WIDTH, HEIGHT))
+PLANET = pygame.transform.scale(pygame.image.load("jupiter.png"), (PLANET_SIZE * 2, PLANET_SIZE * 2))
 
 WHITE = (255,255,255)
 RED = (255,0,0)
@@ -33,7 +33,8 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
-        win.blit(BG)
+        win.blit(BG, (0,0))
+        pygame.display.update()
 
     pygame.quit()
 
