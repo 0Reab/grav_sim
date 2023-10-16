@@ -26,14 +26,27 @@ def main():
     running = True
     clock = pygame.time.Clock()
 
+    objects = []
+    temp_obj_pos = None
+
     while running:
         clock.tick(FPS)
+
+        mouse_pos = pygame.mouse.get_pos()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
 
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                temp_obj_pos = mouse_pos
+
         win.blit(BG, (0,0))
+
+        if temp_obj_pos:
+            pygame.draw.circle(win, WHITE, temp_obj_pos, mouse_pos, 2)
+            pygame.draw.circle(win, RED, temp_obj_pos, OBJ_SIZE)
+
         pygame.display.update()
 
     pygame.quit()
